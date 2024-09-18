@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Your chat</title>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&family=Unlock&display=swap" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Give+You+Glory&family=Marmelad&family=Nerko+One&family=Unlock&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        .font_1 {
+            font-family: "Unlock", serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .font_2 {
+            font-family: "Nerko One", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        .font_3 {
+            font-family: "Give You Glory", cursive;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        .font_3 {
+  font-family: "Marmelad", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body {
+    background: url('/update2.png'), linear-gradient(rgba(0, 0, 0, 0.662), rgba(0, 0, 0, 0.626));  /* Add the gradient first, then the image */
+    background-position: center;     /* Center the background image */
+    background-repeat: no-repeat;    /* No repeat to avoid tiling */
+    background-size:cover;          /* Make the image cover the entire area */
+    background-blend-mode: overlay;  
+}
+
+
+    </style>
+  </head>
+
+  <body class="font-sans font_3 h-screen  flex justify-center items-center ">
+
+    <div class="drop-shadow-sm max-w-lg mx-auto p-10  rounded-2xl gradient bg-gradient-to-b from-pink-500 to-violet-500">
+      <h3 class="text-3xl font-semibold text-center mb-6 text-white font_3">
+        Update Chat
+      </h3>
+
+   <form action="/chats" method="POST" class="items-center">
+
+    <div class="flex-col space-y-8"> 
+
+    <input class="focus:ring-4 ring-[violet]-300 outline-none drop-shadow-lg bg-gray-200 p-4 rounded-lg text-black font_3 w-full h-16" type="text" name="from" placeholder="Who are you?" value="<%= chat.from %>">
+
+    <textarea class="focus:ring-4 ring-[violet]-300 outline-none drop-shadow-lg bg-gray-200 p-4 rounded-lg text-black font_3 w-full  h-28" name="message" placeholder="Write your message.." id="" value=""><%= chat.message %></textarea>
+
+    <input class="drop-shadow-lg bg-gray-200 p-4 rounded-lg text-black font_3 w-full h-16 focus:ring-4 ring-[violet]-300 outline-none" type="text" name="to" placeholder="Who received the message" value="<%= chat.to %>">
+
+    <form action="/chats/<%=chat._id%>/update?_method=PATCH" method="POST">
+        <button type="submit" class="btn items-center w-full bg-pink-500 text-white font_3 border-none hover:bg-pink-600 drop-shadow-lg text-2xl">Update</button>
+    </form>
+    </div>
+   </form>
+
+      <!-- Chat Container -->
+      
+    </div>
+  </body>
+</html>
